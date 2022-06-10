@@ -11,4 +11,4 @@
 
 Схема базы:
 
-![](C:\Users\nnikolskiy\Documents\Lightshot\Screenshot_35.png)
+![](/resources/Screenshot_35.png)
