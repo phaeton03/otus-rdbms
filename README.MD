@@ -3,4 +3,4 @@
 
 ### Оглавление 
 
-1. [Схема БД](/homeworks/HOMEWORK_1.md)
+1. [Домашняя работа №1. Схема БД](/homeworks/HOMEWORK_1.md)
