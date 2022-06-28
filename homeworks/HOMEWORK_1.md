@@ -11,4 +11,4 @@
 
 Схема базы:
 
-![](/resources/Screenshot_35.png)
+![](/resources/schemaForHomework_1.png)
