@@ -1,7 +1,11 @@
 ## Скрипты для создания схемы, роли и таблиц в базе
 
 ```sql
-create role nikoniko with superpuser;
+create database otus;
+```
+
+```sql
+create role nikoniko SUPERUSER;
 ```
 
 ```sql

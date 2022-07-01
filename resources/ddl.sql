@@ -1,4 +1,6 @@
-create role nikoniko with superpuser;
+create database otus;
+
+create role nikoniko SUPERUSER;
 
 create schema if not exists online_shop;
 
