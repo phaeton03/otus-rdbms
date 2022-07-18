@@ -10,9 +10,8 @@ create table if not exists online_shop.suppliers(
 );
 
 create table if not exists online_shop.manufactures(
-    id bigint primary key generated always as identity,
+    id bigserial primary key,
     name varchar (50) not null
-
 );
 
 create table if not exists online_shop.category_products(
@@ -20,7 +19,7 @@ create table if not exists online_shop.category_products(
 )
 
 create table if not exists online_shop.products(
-    id bigint primary key generated always as identity,
+    id bigserial primary key
     name varchar(50) not null,
     manufacturer bigint not null,
     category varchar(50) not null,
@@ -31,6 +30,7 @@ create table if not exists online_shop.products(
 create table if not exists online_shop.prices(
     id bigint primary key generated always as identity,
     product_id bigint not null,
+    price numeric,
     foreign key(product_id) references online_shop.products(id)
 )
 
@@ -45,7 +45,9 @@ create table if not exists online_shop.clients(
     id bigint primary key generated always as identity,
     name varchar(25) not null,
     phone varchar(15) not null unique,
-    email varchar(100) not null unique
+    email varchar(100) not null unique,
+    address_id bigint not null,
+    foreign key(address_id) references online_shop.address(id)
 )
 
 create table if not exists online_shop.order_status(
