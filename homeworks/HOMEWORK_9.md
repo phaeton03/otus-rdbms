@@ -17,18 +17,19 @@ left join online_shop.manufactures m on p.manufacturer = m.id;
 
 Создание индекса для полнотекстового поиска
 ```sql
-create index street_dx on online_shop.address(street);
+create index street_text_dx on online_shop.address
+USING GIN (to_tsvector('russian',street));
 
 explain(costs, verbose, format json)
-select id, home, street, city from online_shop.address where street like '400%'
+select home, street, city from online_shop.address 
+where to_tsvector('russian',street) @@ to_tsquery('пр-кт')  
 ```
 
 #### Поиск по тексту в таблице address без индекса 
-![Выполнение поиска по тексту в таблице address без индекса](/resources/text_search.png)
+![Выполнение поиска по тексту в таблице address без индекса](/resources/fulltext_search.png)
 #### Поиск по тексту в таблице address с индексом
-![Выполнение поиска по тексту в таблице address с индексом](/resources/text_search_index.png)
+![Выполнение поиска по тексту в таблице address с индексом](/resources/fulltext_search_dx.png)
 
-**Вывод:** планировщик самостоятельно так и не подгрузил полнотекстный индекс.
 
 Создание индекса по выражению (home || ' ' || street || ' ' || city)
 ```sql
