@@ -10,3 +10,4 @@
 5. [Домашняя работа №9. Индексы в PostgreSQL](/homeworks/HOMEWORK_9.md)
 6. [Домашняя работа №12. Функции LAG и CTE](/homeworks/HOMEWORK_12.md)
 7. [Домашняя работа №18. Репликация](/homeworks/HOMEWORK_18.md)
+8. [Доммашняя работа №21. Внутренняя архитектура СУБД MySQL](/homeworks/HOMEWORK_21.md)
