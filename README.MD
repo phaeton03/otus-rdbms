@@ -11,4 +11,4 @@
 6. [Домашняя работа №12. Функции LAG и CTE](/homeworks/HOMEWORK_12.md)
 7. [Домашняя работа №18. Репликация](/homeworks/HOMEWORK_18.md)
 8. [Доммашняя работа №21. Внутренняя архитектура СУБД MySQL](/homeworks/HOMEWORK_21.md)
-8. [Доммашняя работа №22. Типы данных в MySQL](/homeworks/HOMEWORK_22.md)
+9. [Доммашняя работа №22. Типы данных в MySQL](/homeworks/HOMEWORK_22.md)

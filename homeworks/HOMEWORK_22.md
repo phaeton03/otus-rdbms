@@ -1,4 +1,16 @@
-## Скрипты для создания схемы, роли и таблиц в базе
+## Типы данных в MySQL
+
+Во всех таблица параметр id заменен на 'id int unsigned primary key auto_increment' 
+вместо 'id bigint primary key generated always as identity' в POSTGRESQL
+auto_increment - играет роль generated always as identity
+bigint заменен на int потому что предполагается что записей будет меньше 100 млн
+unsigned - числа в id могут быть только положительными
+
+В таблицу products добавил поле description типа json, для складывания в него неструктуированных данных.
+Такого как описание продукта. Пример приведен ниже после скрипта на создание таблицы
+
+В качестве формата даты в таблицах взят timestamp. 
+
 
 Создаем БД отус
 ```sql
@@ -19,14 +31,14 @@ GRANT 'otus_developer' TO niko@localhost;
 
 ```sql
 create table if not exists suppliers(
-id int primary key auto_increment,
+id int unsigned primary key auto_increment,
 name varchar(50) not null
 );
 ```
 
 ```sql
 create table if not exists manufactures(
-id int primary key auto_increment,
+id int unsigned primary key auto_increment,
 name varchar (50) not null
 );
 ```
@@ -39,19 +51,28 @@ name varchar(50) primary key
 
 ```sql
 create table if not exists products(
-id int primary key auto_increment,
+id int unsigned primary key auto_increment,
 name varchar(50) not null,
 fk_manufacturer int not null,
 fk_category varchar(50) not null,
-desc json,    
+description json,    
 foreign key(manufacturer) references online_shop.manufactures(id),
 foreign key(category) references online_shop.category_products(name)
 );
 ```
 
 ```sql
+insert into (name, fk_manufacturer, fk_category, description) 
+    VALUES ('TV', 1, 1, JSON_OBJECT('TV', 'Samsung'
+                                    'Functions', JSON_ARRAY('WI-Fi', 'Smart-TV', 'Sim'),
+                                    'body', '100 x 150 x 30 cm',
+                                    'screen', '55')
+    );
+```
+
+```sql
 create table if not exists prices(
-id int primary key auto_increment,
+id int unsigned primary key auto_increment,
 fk_product_id int not null,
 foreign key(product_id) references online_shop.products(id)
 );
@@ -59,14 +80,14 @@ foreign key(product_id) references online_shop.products(id)
 
 ```sql
 create table if not exists pricelist(
-id int primary key auto_increment,
+id int unsigned primary key auto_increment,
 date timestamp not null
 );
 ```
 
 ```sql
 create table if not exists pricelist_products(
-id int primary key auto_increment,
+id int unsigned primary key auto_increment,
 fk_product_id int not null,
 fk_price_id int not null,
 fk_pricelist_id int not null,
@@ -75,7 +96,7 @@ fk_pricelist_id int not null,
 
 ```sql
 create table if not exists address(
-id int primary key auto_increment,
+id int unsigned primary key auto_increment,
 home varchar(50) not null,
 street varchar(50) not null,
 city varchar(50) not null
@@ -84,7 +105,7 @@ city varchar(50) not null
 
 ```sql
 create table if not exists clients(
-id int primary key auto_increment,
+id int unsigned primary key auto_increment,
 name varchar(25) not null,
 phone varchar(15) not null unique,
 email varchar(100) not null unique
@@ -93,14 +114,14 @@ email varchar(100) not null unique
 
 ```sql
 create table if not exists order_status(
-id int primary key auto_increment,
+id int unsigned primary key auto_increment,
 status enum not null
 );
 ```
 
 ```sql
 create table if not exists order(
-id int primary key auto_increment,
+id int unsigned primary key auto_increment,
 fk_product_id int not null,
 fk_status_id int not null,
 fk_client_id int not null,
