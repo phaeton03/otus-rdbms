@@ -73,6 +73,7 @@ insert into (name, fk_manufacturer, fk_category, description)
 ```sql
 create table if not exists prices(
 id int unsigned primary key auto_increment,
+price bigdecimal,
 fk_product_id int not null,
 foreign key(product_id) references online_shop.products(id)
 );
@@ -81,6 +82,7 @@ foreign key(product_id) references online_shop.products(id)
 ```sql
 create table if not exists pricelist(
 id int unsigned primary key auto_increment,
+price bigdecimal, 
 date timestamp not null
 );
 ```
