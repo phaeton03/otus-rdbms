@@ -53,16 +53,16 @@ name varchar(50) primary key
 create table if not exists products(
 id int unsigned primary key auto_increment,
 name varchar(50) not null,
-fk_manufacturer int not null,
+fk_manufacturer int unsigned not null,
 fk_category varchar(50) not null,
 description json,    
-foreign key(manufacturer) references online_shop.manufactures(id),
-foreign key(category) references online_shop.category_products(name)
+foreign key(fk_manufacturer) references manufactures(id),
+foreign key(fk_category) references category_products(name)
 );
 ```
 
 ```sql
-insert into (name, fk_manufacturer, fk_category, description) 
+insert into products (name, fk_manufacturer, fk_category, description) 
     VALUES ('TV', 1, 1, JSON_OBJECT('TV', 'Samsung'
                                     'Functions', JSON_ARRAY('WI-Fi', 'Smart-TV', 'Sim'),
                                     'body', '100 x 150 x 30 cm',
@@ -73,16 +73,16 @@ insert into (name, fk_manufacturer, fk_category, description)
 ```sql
 create table if not exists prices(
 id int unsigned primary key auto_increment,
-price bigdecimal,
-fk_product_id int not null,
-foreign key(product_id) references online_shop.products(id)
+price 4decimal,
+fk_product_id int unsigned not null,
+foreign key(fk_product_id) references products(id)
 );
 ```
 
 ```sql
 create table if not exists pricelist(
 id int unsigned primary key auto_increment,
-price bigdecimal, 
+price decimal, 
 date timestamp not null
 );
 ```
@@ -90,9 +90,9 @@ date timestamp not null
 ```sql
 create table if not exists pricelist_products(
 id int unsigned primary key auto_increment,
-fk_product_id int not null,
-fk_price_id int not null,
-fk_pricelist_id int not null,
+fk_product_id int unsigned not null,
+fk_price_id int unsigned not null,
+fk_pricelist_id int unsigned not null,
 );
 ```
 
@@ -117,19 +117,18 @@ email varchar(100) not null unique
 ```sql
 create table if not exists order_status(
 id int unsigned primary key auto_increment,
-status enum not null
-);
+status enum('READY','NOT_READY', 'PENDING', 'IN_TRANSITION'));
 ```
 
 ```sql
-create table if not exists order(
+create table if not exists order_(
 id int unsigned primary key auto_increment,
-fk_product_id int not null,
-fk_status_id int not null,
-fk_client_id int not null,
-foreign key(product_id) references online_shop.products(id),
-foreign key(status_id) references online_shop.order_status(id),
-foreign key(client_id) references online_shop.clients(id),
+fk_product_id int unsigned not null,
+fk_status_id int unsigned not null,
+fk_client_id int unsigned not null,
+foreign key(fk_product_id) references products(id),
+foreign key(fk_status_id) references order_status(id),
+foreign key(fk_client_id) references clients(id),
 start_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null,
 end_date timestamp
 );
