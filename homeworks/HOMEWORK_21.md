@@ -3,7 +3,6 @@
 [файл настройки](/resources/custom.conf/my.cnf)
 innodb_flush_method=O_DIRECT - препятсвует дополнительному кешированию данных со стороны ОС Линукса
 innodb_buffer_pool_size=4294967296 - выбираем подходящий размер оперативной памяти отведенной под буфер
-secure_file_priv = "" - разрешает импорт / экспорт файлов 
  
 [docker-compose](/resources/docker-compose.yml)
 

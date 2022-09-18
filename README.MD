@@ -13,4 +13,3 @@
 8. [Доммашняя работа №21. Внутренняя архитектура СУБД MySQL](/homeworks/HOMEWORK_21.md)
 9. [Доммашняя работа №22. Типы данных в MySQL](/homeworks/HOMEWORK_22.md)
 10. [Доммашняя работа №24. DML в MySQL](/homeworks/HOMEWORK_24.md)
-11. [Доммашняя работа №25. Транзакции](/homeworks/HOMEWORK_25.md)

@@ -11,8 +11,6 @@ services:
       - data:/var/lib/mysql
       - ./init.sql:/init.sql
       - ./custom.conf:/etc/mysql/conf.d
-      - ./custom.conf:/etc/mysql
-      - ./mysql-files:/var/lib/mysql-files
     expose:
       - "3306"
     ports:
