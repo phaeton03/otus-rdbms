@@ -63,7 +63,7 @@ foreign key(fk_category) references category_products(name)
 
 ```sql
 insert into products (name, fk_manufacturer, fk_category, description) 
-    VALUES ('TV', 1, 1, JSON_OBJECT('TV', 'Samsung'
+    VALUES ('TV', 1, 1, JSON_OBJECT('TV', 'Samsung',
                                     'Functions', JSON_ARRAY('WI-Fi', 'Smart-TV', 'Sim'),
                                     'body', '100 x 150 x 30 cm',
                                     'screen', '55')
@@ -73,7 +73,7 @@ insert into products (name, fk_manufacturer, fk_category, description)
 ```sql
 create table if not exists prices(
 id int unsigned primary key auto_increment,
-price 4decimal,
+price decimal,
 fk_product_id int unsigned not null,
 foreign key(fk_product_id) references products(id)
 );
@@ -92,7 +92,7 @@ create table if not exists pricelist_products(
 id int unsigned primary key auto_increment,
 fk_product_id int unsigned not null,
 fk_price_id int unsigned not null,
-fk_pricelist_id int unsigned not null,
+fk_pricelist_id int unsigned not null
 );
 ```
 
