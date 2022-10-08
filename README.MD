@@ -16,3 +16,4 @@
 11. [Доммашняя работа №25. Транзакции](/homeworks/HOMEWORK_25.md)
 12. [Доммашняя работа №26. DML: агрегация и сортировка](/homeworks/HOMEWORK_26.md)
 13. [Доммашняя работа №27. Index MySQL](/homeworks/HOMEWORK_27.md)
+13. [Доммашняя работа №29. Хранимые процедуры и триггеры ](/homeworks/HOMEWORK_29.md)
