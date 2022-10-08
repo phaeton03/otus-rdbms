@@ -17,7 +17,7 @@ GRANT 'execute_get_orders' TO manager@localhost;
 ```sql
 DELIMITER $$
     
-CREATE procedure filter_products(category int unsigned, 
+CREATE procedure filter_products(category varchar(50), 
                                  manufacturer int unsigned, 
                                  price int unsigned, 
                                  sort_column varchar(20),
@@ -33,11 +33,11 @@ BEGIN
          left join prices pr 
               on pr.fk_product_id = p.id
          where (pr.price < price OR price is null) 
-           AND (m.name = manufacturer OR manufacturer is null) 
+           AND (m.id = manufacturer OR manufacturer is null) 
            AND (cp.name = category OR category is null) 
          order by sort_column 
-         limit lim 
-         offset offs; 
+         limit coalesce(lim, 100) 
+         offset coalesce(offs, 0); 
 END
 $$
 ```
