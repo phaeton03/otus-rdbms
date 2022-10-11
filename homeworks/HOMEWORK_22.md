@@ -133,3 +133,14 @@ start_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null,
 end_date timestamp
 );
 ```
+
+```sql
+create table if not exists sales(
+id int unsigned primary key auto_increment,
+fk_product_id int unsigned not null,
+fk_client_id int unsigned not null,
+foreign key(fk_product_id) references products(id),
+foreign key(fk_client_id) references clients(id),
+date TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null
+);
+```
