@@ -90,4 +90,4 @@ end_date timestamp
 );
 ```
 
-![](/resources/ddl.sql)
+![](../resources/ddl.sql)
