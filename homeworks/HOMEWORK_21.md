@@ -21,5 +21,5 @@ secure_file_priv = "" - разрешает импорт / экспорт фай�
 
 `mysql -u root -p12345 --port=3309 --protocol=tcp otus`
 
-![Test mySql connection](/resources/Test mySql conn.png)
+![Test mySql connection](../resources/Test mySql conn.png)
 

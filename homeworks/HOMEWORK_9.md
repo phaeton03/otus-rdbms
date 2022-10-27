@@ -9,11 +9,11 @@ select * from online_shop.products p
 left join online_shop.manufactures m on p.manufacturer = m.id;
 ```
 #### Запросы по продуктам без индекса
-![Выполнение запроса по продуктам без индекса](/resources/products.png)
-![Explain запроса по продуктам без индекса](/resources/explain_products.png)
+![Выполнение запроса по продуктам без индекса](../resources/products.png)
+![Explain запроса по продуктам без индекса](../resources/explain_products.png)
 #### Запросы по продуктам с индексом 
-![Выполнение запроса по продуктам с индексом](/resources/products_dx.png)
-![Explain запроса по продуктам с индексом](/resources/explain_products_dx.png)
+![Выполнение запроса по продуктам с индексом](../resources/products_dx.png)
+![Explain запроса по продуктам с индексом](../resources/explain_products_dx.png)
 
 Создание индекса для полнотекстового поиска
 ```sql
@@ -26,9 +26,9 @@ where to_tsvector('russian',street) @@ to_tsquery('пр-кт')
 ```
 
 #### Поиск по тексту в таблице address без индекса 
-![Выполнение поиска по тексту в таблице address без индекса](/resources/fulltext_search.png)
+![Выполнение поиска по тексту в таблице address без индекса](../resources/fulltext_search.png)
 #### Поиск по тексту в таблице address с индексом
-![Выполнение поиска по тексту в таблице address с индексом](/resources/fulltext_search_dx.png)
+![Выполнение поиска по тексту в таблице address с индексом](../resources/fulltext_search_dx.png)
 
 
 Создание индекса по выражению (home || ' ' || street || ' ' || city)
@@ -42,11 +42,11 @@ where (home || ' ' || street || ' ' || city) = '30 Зеленый пр-кт Мо
 ```
 
 #### Поиск по тексту в таблице address по выражению без индекса
-![Выполнение поиска по тексту в таблице address по выражению](/resources/search_by_func.png)
-![Explain запроса по тексту в таблице address без индекса](/resources/explain_search_by_func.png)
+![Выполнение поиска по тексту в таблице address по выражению](../resources/search_by_func.png)
+![Explain запроса по тексту в таблице address без индекса](../resources/explain_search_by_func.png)
 #### Поиск по тексту в таблице address по выражению c индексом
-![Выполнение поиска по тексту в таблице address с индексом](/resources/address_dx.png)
-![Explain запроса по тексту в таблице address с индексом](/resources/explain_address_dx.png)
+![Выполнение поиска по тексту в таблице address с индексом](../resources/address_dx.png)
+![Explain запроса по тексту в таблице address с индексом](../resources/explain_address_dx.png)
 
 Создание составного индекса на таблицу address
 ```sql
@@ -59,7 +59,7 @@ where city = 'Moscow' and home = '30'
 ```
 
 #### Поиск по тексту в таблице address по нескольким полям без индекса
-![Explain запроса по тексту в таблице address без индекса](/resources/address_composite.png)
+![Explain запроса по тексту в таблице address без индекса](../resources/address_composite.png)
 #### Поиск по тексту в таблице address по нескольким полям c индексом
-![Выполнение поиска по тексту в таблице address с индексом](/resources/address_dx.png)
-![Explain запроса по тексту в таблице address с индексом](/resources/explain_address_dx.png)
+![Выполнение поиска по тексту в таблице address с индексом](../resources/address_dx.png)
+![Explain запроса по тексту в таблице address с индексом](../resources/explain_address_dx.png)

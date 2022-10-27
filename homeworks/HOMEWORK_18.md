@@ -9,7 +9,7 @@ select pg_create_physical_replication_slot
 в файле postgresql.conf проставляем параметр 
 wal_receiver_status_interval = 600s(отставание реплики от мастера на 5 минут)
  
-![Результат физической репликации](/resources/replica-result.png)
+![Результат физической репликации](../resources/replica-result.png)
 
 #### Логическая репликация
 
@@ -48,4 +48,4 @@ create subscription test_sub connection 'host=192.168.1.63 port=5433 user postgr
     'dbname=logic_replica' publication test_pub;
 ```
 
-![Результат логической репликации](/resources/logic_replica_result.png)
+![Результат логической репликации](../resources/logic_replica_result.png)

@@ -12,4 +12,4 @@
 
 Схема базы:
 
-![](/resources/schemaForHomework_2.png)
+![](../resources/schemaForHomework_2.png)
